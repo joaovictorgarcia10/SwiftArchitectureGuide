@@ -25,6 +25,9 @@
 		7EF5AEF42CB1635A0080775F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7EF5AEF32CB163590080775F /* GoogleService-Info.plist */; };
 		7EFFF6042CC138AF0055209D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EFFF6032CC138AF0055209D /* LoginViewController.swift */; };
 		7EFFF6062CC138E50055209D /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EFFF6052CC138E50055209D /* RegisterViewController.swift */; };
+		7EFFF6092CC3DEAC0055209D /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EFFF6082CC3DEAC0055209D /* HomePresenter.swift */; };
+		7EFFF60B2CC3DEB80055209D /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EFFF60A2CC3DEB80055209D /* LoginPresenter.swift */; };
+		7EFFF60D2CC3DECC0055209D /* RegisterPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EFFF60C2CC3DECC0055209D /* RegisterPresenter.swift */; };
 		8542471EEE8F01836A192C1A /* Pods_SwiftArchitectureGuide_SwiftArchitectureGuideUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDFCB2AEFA35C8469648DE40 /* Pods_SwiftArchitectureGuide_SwiftArchitectureGuideUITests.framework */; };
 		E37848CF3E359D6CE4EBD73B /* Pods_SwiftArchitectureGuideTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 777742590B46E581FAB03C3A /* Pods_SwiftArchitectureGuideTests.framework */; };
 /* End PBXBuildFile section */
@@ -72,6 +75,9 @@
 		7EF5AEF32CB163590080775F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7EFFF6032CC138AF0055209D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		7EFFF6052CC138E50055209D /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		7EFFF6082CC3DEAC0055209D /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
+		7EFFF60A2CC3DEB80055209D /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
+		7EFFF60C2CC3DECC0055209D /* RegisterPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPresenter.swift; sourceTree = "<group>"; };
 		96268DB9CF77734BD8F707BD /* Pods-SwiftArchitectureGuideTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftArchitectureGuideTests.debug.xcconfig"; path = "Target Support Files/Pods-SwiftArchitectureGuideTests/Pods-SwiftArchitectureGuideTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9AC95BC155426D08135C9861 /* Pods-SwiftArchitectureGuide.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftArchitectureGuide.debug.xcconfig"; path = "Target Support Files/Pods-SwiftArchitectureGuide/Pods-SwiftArchitectureGuide.debug.xcconfig"; sourceTree = "<group>"; };
 		D9185F2D5EE84CD6FF0A5DF7 /* Pods_SwiftArchitectureGuide.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftArchitectureGuide.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -193,6 +199,7 @@
 		7E8B258F2C9B53B000774573 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				7EFFF6072CC3DE990055209D /* Presenters */,
 				7EFFF6022CC1388E0055209D /* Controllers */,
 				7E11DBE82C9A525D003EF82A /* AppDelegate.swift */,
 				7E11DBEA2C9A525D003EF82A /* SceneDelegate.swift */,
@@ -243,6 +250,16 @@
 				7EFFF6052CC138E50055209D /* RegisterViewController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		7EFFF6072CC3DE990055209D /* Presenters */ = {
+			isa = PBXGroup;
+			children = (
+				7EFFF6082CC3DEAC0055209D /* HomePresenter.swift */,
+				7EFFF60A2CC3DEB80055209D /* LoginPresenter.swift */,
+				7EFFF60C2CC3DECC0055209D /* RegisterPresenter.swift */,
+			);
+			path = Presenters;
 			sourceTree = "<group>";
 		};
 		E357E7D89F0771D94A40B82E /* Frameworks */ = {
@@ -495,16 +512,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7EFFF60B2CC3DEB80055209D /* LoginPresenter.swift in Sources */,
 				7EFFF6042CC138AF0055209D /* LoginViewController.swift in Sources */,
 				7EFFF6062CC138E50055209D /* RegisterViewController.swift in Sources */,
 				7E11DBED2C9A525D003EF82A /* HomeViewController.swift in Sources */,
 				7E11DBE92C9A525D003EF82A /* AppDelegate.swift in Sources */,
 				7E11DBEB2C9A525D003EF82A /* SceneDelegate.swift in Sources */,
 				7E11DC1D2C9A58AE003EF82A /* Constants.swift in Sources */,
+				7EFFF60D2CC3DECC0055209D /* RegisterPresenter.swift in Sources */,
 				7E8B25982C9BA31600774573 /* UserModel.swift in Sources */,
 				7E8B25952C9BA2DB00774573 /* UserProvider.swift in Sources */,
 				7E0350F12C9CDF3B00991E65 /* UserManager.swift in Sources */,
 				7E8B259C2C9C448500774573 /* UserBusiness.swift in Sources */,
+				7EFFF6092CC3DEAC0055209D /* HomePresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
