@@ -17,7 +17,59 @@ final class SwiftArchitectureGuideTests: XCTestCase {
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
+    
+    func testRegister() {
+        _ = expectation(description: "Should perform register successfully (already registerd emails won't work)")
+        
+        let manager = UserManager(business: UserBusiness())
+        let email = "teste@teste.com"
+        let password = "12345678"
+    
+        var userModel: UserModel?
 
+        manager.register(email: email, password: password) { success in
+            print(success)
+            userModel = success
+        } errorHandler: { error in
+            print(error)
+        }
+        
+        waitForExpectations(timeout: 30) { error in
+            if let error = error {
+                XCTFail("waitForExpectationsWithTimeout error: \(error)")
+            }
+            
+            XCTAssertEqual(userModel != nil, true)
+            XCTAssertEqual(userModel!.email, email)
+         }
+    }
+    
+    func testLogin() {
+        _ = expectation(description: "Should perform login successfully")
+        
+        let manager = UserManager(business: UserBusiness())
+        let email = "teste@teste.com"
+        let password = "12345678"
+    
+        var userModel: UserModel?
+
+        manager.login(email: email, password: password) { success in
+            print(success)
+            userModel = success
+        } errorHandler: { error in
+            print(error)
+        }
+        
+        waitForExpectations(timeout: 30) { error in
+            if let error = error {
+                XCTFail("waitForExpectationsWithTimeout error: \(error)")
+            }
+            
+            XCTAssertEqual(userModel != nil, true)
+            XCTAssertEqual(userModel!.email, email)
+         }
+    }
+    
     func testExample() throws {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
