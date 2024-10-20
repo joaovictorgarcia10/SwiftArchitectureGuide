@@ -152,7 +152,6 @@
 			isa = PBXGroup;
 			children = (
 				7E11DC192C9A527F003EF82A /* Infrastructure */,
-				7E11DC182C9A5276003EF82A /* API */,
 				7E8B258F2C9B53B000774573 /* Source */,
 				7E11DBF62C9A525F003EF82A /* Info.plist */,
 				7EF5AEF32CB163590080775F /* GoogleService-Info.plist */,
@@ -191,6 +190,7 @@
 		7E11DC192C9A527F003EF82A /* Infrastructure */ = {
 			isa = PBXGroup;
 			children = (
+				7E11DC182C9A5276003EF82A /* API */,
 				7E11DC1C2C9A58AE003EF82A /* Constants.swift */,
 			);
 			path = Infrastructure;
@@ -199,8 +199,9 @@
 		7E8B258F2C9B53B000774573 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				7EFFF6072CC3DE990055209D /* Presenters */,
-				7EFFF6022CC1388E0055209D /* Controllers */,
+				7EFFF60E2CC3E23D0055209D /* Login */,
+				7EFFF60F2CC3E24F0055209D /* Register */,
+				7EFFF6102CC3E2680055209D /* Home */,
 				7E11DBE82C9A525D003EF82A /* AppDelegate.swift */,
 				7E11DBEA2C9A525D003EF82A /* SceneDelegate.swift */,
 				7E11DBEE2C9A525D003EF82A /* Main.storyboard */,
@@ -242,24 +243,31 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		7EFFF6022CC1388E0055209D /* Controllers */ = {
+		7EFFF60E2CC3E23D0055209D /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				7EFFF6032CC138AF0055209D /* LoginViewController.swift */,
+				7EFFF60A2CC3DEB80055209D /* LoginPresenter.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		7EFFF60F2CC3E24F0055209D /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				7EFFF6052CC138E50055209D /* RegisterViewController.swift */,
+				7EFFF60C2CC3DECC0055209D /* RegisterPresenter.swift */,
+			);
+			path = Register;
+			sourceTree = "<group>";
+		};
+		7EFFF6102CC3E2680055209D /* Home */ = {
 			isa = PBXGroup;
 			children = (
 				7E11DBEC2C9A525D003EF82A /* HomeViewController.swift */,
-				7EFFF6032CC138AF0055209D /* LoginViewController.swift */,
-				7EFFF6052CC138E50055209D /* RegisterViewController.swift */,
-			);
-			path = Controllers;
-			sourceTree = "<group>";
-		};
-		7EFFF6072CC3DE990055209D /* Presenters */ = {
-			isa = PBXGroup;
-			children = (
 				7EFFF6082CC3DEAC0055209D /* HomePresenter.swift */,
-				7EFFF60A2CC3DEB80055209D /* LoginPresenter.swift */,
-				7EFFF60C2CC3DECC0055209D /* RegisterPresenter.swift */,
 			);
-			path = Presenters;
+			path = Home;
 			sourceTree = "<group>";
 		};
 		E357E7D89F0771D94A40B82E /* Frameworks */ = {
@@ -707,6 +715,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7823M5V5PX;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SwiftArchitectureGuide/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -738,6 +747,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7823M5V5PX;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SwiftArchitectureGuide/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

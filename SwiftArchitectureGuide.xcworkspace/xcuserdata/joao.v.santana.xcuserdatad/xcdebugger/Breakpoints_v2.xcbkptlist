@@ -8,7 +8,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "F16B3CAA-12AE-4E6E-8EB3-7BB30A09C960"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SwiftArchitectureGuide/Source/AppDelegate.swift"
@@ -24,7 +24,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "1A4464AB-30C4-4433-8714-72E99B67487E"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SwiftArchitectureGuideTests/API/Manager/UserManagerTests.swift"
@@ -40,7 +40,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "456DD697-47EF-44BC-BAAB-C731F2C1DFFA"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SwiftArchitectureGuideTests/API/Manager/UserManagerTests.swift"
@@ -56,7 +56,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "09BE4341-9D95-48F7-8037-4F026817DA7B"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SwiftArchitectureGuideTests/API/Manager/UserManagerTests.swift"
@@ -72,7 +72,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "4BABFD35-6381-42AB-B9D4-BD89BD89B63F"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SwiftArchitectureGuideTests/API/Manager/UserManagerTests.swift"
@@ -88,7 +88,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "8B377E26-85F9-4C9B-A3E5-4197A8F9980D"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SwiftArchitectureGuideTests/API/Manager/UserManagerTests.swift"
@@ -104,7 +104,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "8ABEE29D-009E-493D-9632-B588162B9404"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SwiftArchitectureGuideTests/API/Manager/UserManagerTests.swift"
@@ -120,7 +120,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "FB40B0B6-0C7D-4072-B917-745A6C216424"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SwiftArchitectureGuideTests/SwiftArchitectureGuideTests.swift"
@@ -136,7 +136,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "44313E91-518C-48BE-9969-96C3BAA40EE2"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SwiftArchitectureGuideTests/SwiftArchitectureGuideTests.swift"
@@ -168,7 +168,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "607BDF74-4EF3-46BC-9277-2F8E67465747"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SwiftArchitectureGuide/API/Manager/UserManager.swift"
@@ -184,7 +184,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "576EF112-EA76-4575-A00F-71E45F6A8576"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SwiftArchitectureGuide/API/Manager/UserManager.swift"
@@ -210,6 +210,36 @@
             endingLineNumber = "30"
             landmarkName = "register(email:password:completionHandler:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "73F66659-2203-4D6C-9EA6-4CDD5647C61E - a6aa9fc62643ebc3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SwiftArchitectureGuide.UserBusiness.register(email: Swift.String, password: Swift.String, completionHandler: (Swift.Result&lt;SwiftArchitectureGuide.UserModel, Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "SwiftArchitectureGuide"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/joao.v.santana/Desktop/SwiftArchitectureGuide/SwiftArchitectureGuide/API/Business/UserBusiness.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "30"
+                  endingLineNumber = "30">
+               </Location>
+               <Location
+                  uuid = "73F66659-2203-4D6C-9EA6-4CDD5647C61E - 350a5cb12fc80936"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;SwiftArchitectureGuide.UserModel, Swift.Error&gt;) -&gt; () in SwiftArchitectureGuide.UserBusiness.register(email: Swift.String, password: Swift.String, completionHandler: (Swift.Result&lt;SwiftArchitectureGuide.UserModel, Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "SwiftArchitectureGuide"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/joao.v.santana/Desktop/SwiftArchitectureGuide/SwiftArchitectureGuide/API/Business/UserBusiness.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "30"
+                  endingLineNumber = "30">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -290,6 +320,36 @@
             endingLineNumber = "37"
             landmarkName = "register(parameters:completionHanlder:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "103D9055-05FF-473D-9057-5443AE542A20 - 715c18007fed7c1c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SwiftArchitectureGuide.UserProvider.register(parameters: Swift.Dictionary&lt;Swift.AnyHashable, Any&gt;, completionHanlder: (Swift.Result&lt;SwiftArchitectureGuide.UserModel, Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "SwiftArchitectureGuide"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/joao.v.santana/Desktop/SwiftArchitectureGuide/SwiftArchitectureGuide/API/Provider/UserProvider.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "37"
+                  endingLineNumber = "37">
+               </Location>
+               <Location
+                  uuid = "103D9055-05FF-473D-9057-5443AE542A20 - cbe217673ba975af"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;FirebaseAuth.AuthDataResult&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in SwiftArchitectureGuide.UserProvider.register(parameters: Swift.Dictionary&lt;Swift.AnyHashable, Any&gt;, completionHanlder: (Swift.Result&lt;SwiftArchitectureGuide.UserModel, Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "SwiftArchitectureGuide"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/joao.v.santana/Desktop/SwiftArchitectureGuide/SwiftArchitectureGuide/API/Provider/UserProvider.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "37"
+                  endingLineNumber = "37">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -450,6 +510,132 @@
             endingLineNumber = "69"
             landmarkName = "testLogin()"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E1840DE3-500C-47F2-AAA4-99B220CFE6DC"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SwiftArchitectureGuide/Source/Register/RegisterViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
+            landmarkName = "onTapRegisterButton(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C9916467-0E9E-4D53-A475-A4418FDFCADB"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SwiftArchitectureGuide/Source/Register/RegisterViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
+            landmarkName = "onTapRegisterButton(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8007F17C-52DA-4471-B5EA-841C7FD662AF"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SwiftArchitectureGuide/Source/Register/RegisterViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
+            landmarkName = "onTapRegisterButton(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F6BA0792-572E-4927-A53B-C260AA80F927"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SwiftArchitectureGuide/Source/Register/RegisterViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
+            landmarkName = "onTapRegisterButton(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "CEC013AC-B7F9-4FEE-B0CE-8758D6847E16"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SwiftArchitectureGuide/Source/Register/RegisterPresenter.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "19"
+            endingLineNumber = "19"
+            landmarkName = "register(userModel:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9E538D5C-D9B3-4F08-9900-D1EDB48681D8"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SwiftArchitectureGuide/Source/Register/RegisterViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
+            landmarkName = "onTapRegisterButton(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "9E538D5C-D9B3-4F08-9900-D1EDB48681D8 - fcfd45ad6679ab55"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SwiftArchitectureGuide.RegisterViewController.onTapRegisterButton(__C.UIButton) -&gt; ()"
+                  moduleName = "SwiftArchitectureGuide"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/joao.v.santana/Desktop/SwiftArchitectureGuide/SwiftArchitectureGuide/Source/Register/RegisterViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28">
+               </Location>
+               <Location
+                  uuid = "9E538D5C-D9B3-4F08-9900-D1EDB48681D8 - fcfd45ad6679ab55"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SwiftArchitectureGuide.RegisterViewController.onTapRegisterButton(__C.UIButton) -&gt; ()"
+                  moduleName = "SwiftArchitectureGuide"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/joao.v.santana/Desktop/SwiftArchitectureGuide/SwiftArchitectureGuide/Source/Register/RegisterViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

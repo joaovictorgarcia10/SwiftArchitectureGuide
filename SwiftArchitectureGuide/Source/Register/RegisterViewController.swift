@@ -14,11 +14,11 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var confirmPasswordTextField: UITextField!
     @IBOutlet weak var registerButton: UIButton!
     
-    var textFieldDelegate: UITextFieldDelegate?
-    
+    let presenter = RegisterPresenter()
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        textFieldDelegate = self
+        presenter.delegate = self
     }
     
 
@@ -27,27 +27,25 @@ class RegisterViewController: UIViewController {
            let password = passwordTextField.text,
            let confirmPassword = confirmPasswordTextField.text {
             
-            if password != confirmPassword {
-                self.showMessage(title: "Erro", message: "As senhas não conferem")
+            if password == confirmPassword {
+                let userModel = UserModel(email: email, password: password)
+                presenter.register(userModel: userModel)
             } else {
-                let manager = UserManager(business: UserBusiness())
-                
-                manager.register(email: email, password: password) { userModel in
-                    self.performSegue(withIdentifier: "RegisterToHomeSegue", sender: self)
-                } errorHandler: { error in
-                    self.showMessage(title: "Erro ao registrar usuário", message: error.localizedDescription)
-                }
+                showMessage(title: "Erro", message: "As senhas não conferem")
             }
         }
     }
-    
-    
+}
+
+
+extension RegisterViewController: RegisterPresenterDelegate {
     func showMessage(title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default))
         self.present(alert, animated: true)
     }
+    
+    func navigateToHome() {
+        self.performSegue(withIdentifier: "RegisterToHomeSegue", sender: self)
+    }
 }
-
-
-extension RegisterViewController: UITextFieldDelegate {}

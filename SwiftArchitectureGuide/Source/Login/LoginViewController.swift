@@ -13,34 +13,31 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
     
-    var textFieldDelegate: UITextFieldDelegate?
+    let presenter = LoginPresenter()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        textFieldDelegate = self
+        presenter.delegate = self
     }
     
     @IBAction func onTapLoginButton(_ sender: UIButton) {
-        let manager = UserManager(business: UserBusiness())
-        
-        if let email = emailTextField.text,
-           let password = passwordTextField.text {
-            
-            manager.login(email: email, password: password) { userModel in
-                self.performSegue(withIdentifier: "LoginToHomeSegue", sender: self)
-            } errorHandler: { error in
-                self.showMessage(title: "Erro ao realizar o login", message: error.localizedDescription)
-            }
+        if let email = emailTextField.text, let password = passwordTextField.text {
+            let userModel = UserModel(email: email, password: password)
+            presenter.login(userModel: userModel)
         }
     }
-    
+}
+
+
+extension LoginViewController: LoginPresenterDelegate {
     
     func showMessage(title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default))
         self.present(alert, animated: true)
     }
+    
+    func navigateToHome() {
+        self.performSegue(withIdentifier: "LoginToHomeSegue", sender: self)
+    }
 }
-
-
-extension LoginViewController: UITextFieldDelegate {}
