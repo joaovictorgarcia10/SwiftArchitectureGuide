@@ -17,8 +17,8 @@ class UserProvider: UserProviderProtocol {
     lazy var auth = Auth.auth()
     
     func login(parameters: [AnyHashable : Any], completionHanlder: @escaping (Result<UserModel, any Error>) -> Void) {
-        let body: NSDictionary = parameters[Constants.ParametersKeys.body] as! NSDictionary
-        let userModel = body[Constants.ParametersKeys.userModel] as! UserModel
+        let body: NSDictionary = parameters[K.ParametersKeys.body] as! NSDictionary
+        let userModel = body[K.ParametersKeys.userModel] as! UserModel
         
         self.auth.signIn(withEmail: userModel.email, password: userModel.password) { (result, error) in
             if let error = error {
@@ -31,8 +31,8 @@ class UserProvider: UserProviderProtocol {
     
     
     func register(parameters: [AnyHashable : Any], completionHanlder: @escaping (Result<UserModel, any Error>) -> Void) {
-        let body: NSDictionary = parameters[Constants.ParametersKeys.body] as! NSDictionary
-        let userModel = body[Constants.ParametersKeys.userModel] as! UserModel
+        let body: NSDictionary = parameters[K.ParametersKeys.body] as! NSDictionary
+        let userModel = body[K.ParametersKeys.userModel] as! UserModel
 
         self.auth.createUser(withEmail: userModel.email, password: userModel.password) { (result, error) in
             if let error = error {

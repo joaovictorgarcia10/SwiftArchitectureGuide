@@ -16,7 +16,7 @@ struct UserModel: Codable {
         self.password = String()
     }
     
-    init(email: String, password: String){
+    init(email: String, password: String) {
         self.email = email
         self.password = password
     }
