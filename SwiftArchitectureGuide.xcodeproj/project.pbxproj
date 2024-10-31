@@ -17,6 +17,9 @@
 		7E11DC0A2C9A525F003EF82A /* SwiftArchitectureGuideUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E11DC092C9A525F003EF82A /* SwiftArchitectureGuideUITests.swift */; };
 		7E11DC0C2C9A525F003EF82A /* SwiftArchitectureGuideUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E11DC0B2C9A525F003EF82A /* SwiftArchitectureGuideUITestsLaunchTests.swift */; };
 		7E11DC1D2C9A58AE003EF82A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E11DC1C2C9A58AE003EF82A /* Constants.swift */; };
+		7E3F7B292CCAC86E0078C926 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3F7B282CCAC86E0078C926 /* RegisterView.swift */; };
+		7E3F7B2B2CCAC87B0078C926 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3F7B2A2CCAC87B0078C926 /* HomeView.swift */; };
+		7E3F7B2D2CCAC8B90078C926 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3F7B2C2CCAC8B90078C926 /* UserViewModel.swift */; };
 		7E8B25952C9BA2DB00774573 /* UserProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E8B25942C9BA2DB00774573 /* UserProvider.swift */; };
 		7E8B25982C9BA31600774573 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E8B25972C9BA31600774573 /* UserModel.swift */; };
 		7E8B259C2C9C448500774573 /* UserBusiness.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E8B259B2C9C448500774573 /* UserBusiness.swift */; };
@@ -71,6 +74,9 @@
 		7E11DC092C9A525F003EF82A /* SwiftArchitectureGuideUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftArchitectureGuideUITests.swift; sourceTree = "<group>"; };
 		7E11DC0B2C9A525F003EF82A /* SwiftArchitectureGuideUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftArchitectureGuideUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		7E11DC1C2C9A58AE003EF82A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		7E3F7B282CCAC86E0078C926 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
+		7E3F7B2A2CCAC87B0078C926 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		7E3F7B2C2CCAC8B90078C926 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		7E8B25942C9BA2DB00774573 /* UserProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProvider.swift; sourceTree = "<group>"; };
 		7E8B25972C9BA31600774573 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		7E8B259B2C9C448500774573 /* UserBusiness.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserBusiness.swift; sourceTree = "<group>"; };
@@ -206,10 +212,51 @@
 			path = Shared;
 			sourceTree = "<group>";
 		};
+		7E3F7B242CCAC7930078C926 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				7ECE17B82CC52C90003F1993 /* LoginViewController.swift */,
+				7ECE17BC2CC52D8E003F1993 /* RegisterViewController.swift */,
+				7ECE17C32CC52DF4003F1993 /* HomeViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		7E3F7B252CCAC7B70078C926 /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				7ECE17B12CC528C9003F1993 /* LoginCoordinator.swift */,
+				7ECE17BE2CC52DA3003F1993 /* RegisterCoordinator.swift */,
+				7ECE17C12CC52DEA003F1993 /* HomeCoordinator.swift */,
+			);
+			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		7E3F7B262CCAC7CD0078C926 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				7E3F7B2C2CCAC8B90078C926 /* UserViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		7E3F7B272CCAC83C0078C926 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				7ECE17C72CC6D42E003F1993 /* LoginView.swift */,
+				7E3F7B282CCAC86E0078C926 /* RegisterView.swift */,
+				7E3F7B2A2CCAC87B0078C926 /* HomeView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		7E8B258F2C9B53B000774573 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				7ECE17C52CC52E10003F1993 /* Modules */,
+				7E3F7B252CCAC7B70078C926 /* Coordinators */,
+				7E3F7B242CCAC7930078C926 /* Controllers */,
+				7E3F7B272CCAC83C0078C926 /* Views */,
+				7E3F7B262CCAC7CD0078C926 /* ViewModels */,
 				7E11DBE82C9A525D003EF82A /* AppDelegate.swift */,
 				7E11DBEA2C9A525D003EF82A /* SceneDelegate.swift */,
 				7E11DBF12C9A525F003EF82A /* Assets.xcassets */,
@@ -275,43 +322,6 @@
 			path = Constants;
 			sourceTree = "<group>";
 		};
-		7ECE17BA2CC52D36003F1993 /* Login */ = {
-			isa = PBXGroup;
-			children = (
-				7ECE17B12CC528C9003F1993 /* LoginCoordinator.swift */,
-				7ECE17C72CC6D42E003F1993 /* LoginView.swift */,
-				7ECE17B82CC52C90003F1993 /* LoginViewController.swift */,
-			);
-			path = Login;
-			sourceTree = "<group>";
-		};
-		7ECE17BB2CC52D75003F1993 /* Register */ = {
-			isa = PBXGroup;
-			children = (
-				7ECE17BE2CC52DA3003F1993 /* RegisterCoordinator.swift */,
-				7ECE17BC2CC52D8E003F1993 /* RegisterViewController.swift */,
-			);
-			path = Register;
-			sourceTree = "<group>";
-		};
-		7ECE17C02CC52DC3003F1993 /* Home */ = {
-			isa = PBXGroup;
-			children = (
-				7ECE17C12CC52DEA003F1993 /* HomeCoordinator.swift */,
-				7ECE17C32CC52DF4003F1993 /* HomeViewController.swift */,
-			);
-			path = Home;
-			sourceTree = "<group>";
-		};
-		7ECE17C52CC52E10003F1993 /* Modules */ = {
-			isa = PBXGroup;
-			children = (
-				7ECE17CC2CC7CA16003F1993 /* Auth */,
-				7ECE17C02CC52DC3003F1993 /* Home */,
-			);
-			path = Modules;
-			sourceTree = "<group>";
-		};
 		7ECE17C62CC530B5003F1993 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
@@ -327,15 +337,6 @@
 				7ECE17C92CC6E2CA003F1993 /* SetupView.swift */,
 			);
 			path = SetupView;
-			sourceTree = "<group>";
-		};
-		7ECE17CC2CC7CA16003F1993 /* Auth */ = {
-			isa = PBXGroup;
-			children = (
-				7ECE17BA2CC52D36003F1993 /* Login */,
-				7ECE17BB2CC52D75003F1993 /* Register */,
-			);
-			path = Auth;
 			sourceTree = "<group>";
 		};
 		E357E7D89F0771D94A40B82E /* Frameworks */ = {
@@ -595,15 +596,18 @@
 				7ECE17BD2CC52D8E003F1993 /* RegisterViewController.swift in Sources */,
 				7ECE17C42CC52DF4003F1993 /* HomeViewController.swift in Sources */,
 				7ECE17C22CC52DEA003F1993 /* HomeCoordinator.swift in Sources */,
+				7E3F7B292CCAC86E0078C926 /* RegisterView.swift in Sources */,
 				7ECE17B02CC52753003F1993 /* Coordinator.swift in Sources */,
 				7E8B25982C9BA31600774573 /* UserModel.swift in Sources */,
 				7ECE17CA2CC6E2CA003F1993 /* SetupView.swift in Sources */,
 				7E8B25952C9BA2DB00774573 /* UserProvider.swift in Sources */,
+				7E3F7B2B2CCAC87B0078C926 /* HomeView.swift in Sources */,
 				7ECE17B22CC528C9003F1993 /* LoginCoordinator.swift in Sources */,
 				7ECE17B52CC52A35003F1993 /* UIColorExtension.swift in Sources */,
 				7E0350F12C9CDF3B00991E65 /* UserManager.swift in Sources */,
 				7E8B259C2C9C448500774573 /* UserBusiness.swift in Sources */,
 				7ECE17C82CC6D42E003F1993 /* LoginView.swift in Sources */,
+				7E3F7B2D2CCAC8B90078C926 /* UserViewModel.swift in Sources */,
 				7ECE17B92CC52C90003F1993 /* LoginViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

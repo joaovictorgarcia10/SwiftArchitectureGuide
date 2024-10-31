@@ -1,31 +1,30 @@
 //
-//  LoginView.swift
+//  RegisterView.swift
 //  SwiftArchitectureGuide
 //
-//  Created by Joao Victor Garcia Leite Santana on 21/10/24.
+//  Created by Joao Victor Garcia Leite Santana on 24/10/24.
 //
 
 import UIKit
 
-class LoginView: UIView {
-    // MARK: Closures
-    var onTapLogin: (() -> Void)
-    var onTapRegister: (() -> Void)
+class RegisterView: UIView {
     
+    // MARK: Closures
+    var onTapRegister: ((_ email: String, _ password: String) -> Void)?
+    var showPasswordsNotMatchAlert: ((_ title: String, _ message: String) -> Void)?
     
     // MARK: Initializers
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.backgroundColor = .viewBackgroundColor
         self.setupView()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    
     // MARK: Properties
-    lazy var emailLabel: UILabel = {
+    private lazy var emailLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Email:"
@@ -34,7 +33,7 @@ class LoginView: UIView {
         return label
     }()
     
-    lazy var passwordLabel: UILabel = {
+    private lazy var passwordLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Senha:"
@@ -42,95 +41,104 @@ class LoginView: UIView {
         label.textAlignment = .left
         return label
     }()
-
     
-    lazy var emailTextField: UITextField = {
+    private lazy var confirmPasswordLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "Confirmar senha::"
+        label.textColor = .black
+        label.textAlignment = .left
+        return label
+    }()
+    
+    private lazy var emailTextField: UITextField = {
         let textField = UITextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
-        
         textField.layer.cornerRadius = K.Spacings.sp1
         textField.layer.borderColor = UIColor.black.cgColor
         textField.layer.borderWidth = 1
-        
         textField.backgroundColor = .white
         textField.textColor = .black
         textField.placeholder = "Digite o seu email"
         textField.keyboardType = .emailAddress
-        
+        textField.isSecureTextEntry = false
         textField.setLeftPaddingPoints(K.Spacings.sp3)
-        
         return textField
     }()
-
     
-    lazy var passwordTextField: UITextField = {
+    private lazy var passwordTextField: UITextField = {
         let textField = UITextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
-        
         textField.layer.cornerRadius = K.Spacings.sp1
         textField.layer.borderColor = UIColor.black.cgColor
         textField.layer.borderWidth = 1
-        
         textField.backgroundColor = .white
         textField.textColor = .black
         textField.placeholder = "Digite a sua senha"
         textField.keyboardType = .default
         textField.isSecureTextEntry = true
-        
         textField.setLeftPaddingPoints(K.Spacings.sp3)
-
         return textField
     }()
     
-    lazy var loginButton: UIButton = {
-        let button = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.backgroundColor = .systemBlue
-        button.layer.cornerRadius = K.Spacings.sp2
-        
-        button.setTitle("Entrar", for: .normal)
-        button.addTarget(self, action: selector(getter: onTapLogin) , for: .touchUpInside)
-            
-        return button
+    private lazy var confirmPasswordTextField: UITextField = {
+        let textField = UITextField()
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        textField.layer.cornerRadius = K.Spacings.sp1
+        textField.layer.borderColor = UIColor.black.cgColor
+        textField.layer.borderWidth = 1
+        textField.backgroundColor = .white
+        textField.textColor = .black
+        textField.placeholder = "Digite a sua senha"
+        textField.keyboardType = .default
+        textField.isSecureTextEntry = true
+        textField.setLeftPaddingPoints(K.Spacings.sp3)
+        return textField
     }()
-
-        
-    lazy var registerButton: UIButton = {
+    
+    private lazy var registerButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Criar conta", for: .normal)
         button.backgroundColor = .systemBlue
         button.layer.cornerRadius = K.Spacings.sp2
+        button.setTitle("Criar conta", for: .normal)
+        button.addTarget(self, action: #selector(onTapRegisterAction), for: .touchUpInside)
         return button
     }()
     
+    
     // MARK: Actions
     @objc
-    func onTapLogin() {
-        self.onTapLogin?()
-    }
-    
-    
-    @objc
-    func onTapRegister() {
-        self.onTapRegister?()
+    private func onTapRegisterAction() {
+        if let email = emailTextField.text,
+           let password = passwordTextField.text,
+           let confirmPassword = confirmPasswordTextField.text {
+            
+            if password == confirmPassword {
+                self.onTapRegister?(email, password)
+            } else {
+                self.showPasswordsNotMatchAlert?("Erro", "As senhas não conferem")
+            }
+        }
     }
 }
 
-
-// MARK: SetupView
-extension LoginView: SetupView {
+// MARK: SetupView Protocol
+extension RegisterView: SetupView {
     func setupView() {
+        self.backgroundColor = .viewBackgroundColor
         setupHierarchy()
         setupConstraints()
     }
-        
+    
     func setupHierarchy() {
         self.addSubview(emailLabel)
         self.addSubview(emailTextField)
         self.addSubview(passwordLabel)
         self.addSubview(passwordTextField)
-        self.addSubview(loginButton)
+        self.addSubview(confirmPasswordLabel)
+        self.addSubview(confirmPasswordTextField)
         self.addSubview(registerButton)
     }
     
@@ -162,14 +170,20 @@ extension LoginView: SetupView {
         ])
         
         NSLayoutConstraint.activate([
-            loginButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: K.Spacings.sp16),
-            loginButton.leadingAnchor.constraint(equalTo: emailLabel.leadingAnchor),
-            loginButton.trailingAnchor.constraint(equalTo: emailLabel.trailingAnchor),
-            loginButton.heightAnchor.constraint(equalToConstant: K.Spacings.sp12)
+            confirmPasswordLabel.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: K.Spacings.sp8),
+            confirmPasswordLabel.leadingAnchor.constraint(equalTo: emailLabel.leadingAnchor),
+            confirmPasswordLabel.trailingAnchor.constraint(equalTo: emailLabel.trailingAnchor),
         ])
         
         NSLayoutConstraint.activate([
-            registerButton.topAnchor.constraint(equalTo: loginButton.bottomAnchor, constant: K.Spacings.sp8),
+            confirmPasswordTextField.topAnchor.constraint(equalTo: confirmPasswordLabel.bottomAnchor, constant: K.Spacings.sp2),
+            confirmPasswordTextField.leadingAnchor.constraint(equalTo: emailLabel.leadingAnchor),
+            confirmPasswordTextField.trailingAnchor.constraint(equalTo: emailLabel.trailingAnchor),
+            confirmPasswordTextField.heightAnchor.constraint(equalToConstant: K.Spacings.sp12)
+        ])
+        
+        NSLayoutConstraint.activate([
+            registerButton.topAnchor.constraint(equalTo: confirmPasswordTextField.bottomAnchor, constant: K.Spacings.sp8),
             registerButton.leadingAnchor.constraint(equalTo: emailLabel.leadingAnchor),
             registerButton.trailingAnchor.constraint(equalTo: emailLabel.trailingAnchor),
             registerButton.heightAnchor.constraint(equalToConstant: K.Spacings.sp12)
