@@ -7,11 +7,14 @@
 
 import UIKit
 
+protocol RegisterViewDelegate {
+    func onTapRegister (_ email: String, _ password: String) -> Void
+    func showPasswordsNotMatchAlert (_ title: String, _ message: String) -> Void
+}
+
+
 class RegisterView: UIView {
-    
-    // MARK: Closures
-    var onTapRegister: ((_ email: String, _ password: String) -> Void)?
-    var showPasswordsNotMatchAlert: ((_ title: String, _ message: String) -> Void)?
+    var delegate: RegisterViewDelegate?
     
     // MARK: Initializers
     override init(frame: CGRect) {
@@ -103,22 +106,22 @@ class RegisterView: UIView {
         button.backgroundColor = .systemBlue
         button.layer.cornerRadius = K.Spacings.sp2
         button.setTitle("Criar conta", for: .normal)
-        button.addTarget(self, action: #selector(onTapRegisterAction), for: .touchUpInside)
+        button.addTarget(self, action: #selector(onTapRegister), for: .touchUpInside)
         return button
     }()
     
     
     // MARK: Actions
     @objc
-    private func onTapRegisterAction() {
+    private func onTapRegister() {
         if let email = emailTextField.text,
            let password = passwordTextField.text,
            let confirmPassword = confirmPasswordTextField.text {
             
             if password == confirmPassword {
-                self.onTapRegister?(email, password)
+                delegate?.onTapRegister(email, password)
             } else {
-                self.showPasswordsNotMatchAlert?("Erro", "As senhas não conferem")
+                delegate?.showPasswordsNotMatchAlert("Erro", "As senhas não conferem")
             }
         }
     }

@@ -7,21 +7,20 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
-   
-    // MARK: Closures
-    var navigateToHome: (() -> Void)?
-    var navigateToRegister: (() -> Void)?
+protocol LoginViewControllerDelegate {
+    func navigateToHome() -> Void
+    func navigateToRegister() -> Void
+}
 
+class LoginViewController: UIViewController {
+    var delegate: LoginViewControllerDelegate?
     
     // MARK: Properties
     lazy var loginView: LoginView = {
         let view = LoginView(frame: .zero)
-        view.onTapLogin = self.onTapLogin
-        view.onTapRegister = self.onTapRegister
+        view.delegate = self
         return view;
     }()
-    
     
     // MARK: Overrides
     override func loadView() {
@@ -33,29 +32,39 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         self.title = "Login"
     }
-    
-    
-    // MARK: Functions
-    private func onTapLogin(_ email: String, _ password: String) {
+}
+
+// MARK: LoginViewDelegate
+extension LoginViewController: LoginViewDelegate {
+    func onTapLogin(_ email: String, _ password: String) {
         let userViewModel = UserViewModel()
         
         userViewModel.login(email, password) {[weak self] result in
             switch result {
             case .success(_):
-                self?.navigateToHome?()
+                self?.delegate?.navigateToHome()
             case .failure(let error):
                 self?.showAlert("Erro", error.localizedDescription)
             }
         }
     }
     
-    private func onTapRegister() {
-        self.navigateToRegister?()
+    func onTapRegister() {
+        self.delegate?.navigateToRegister()
     }
-    
+}
+
+// MARK: Functions
+extension LoginViewController {
     private func showAlert(_ title: String, _ message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Ok", style: .default))
         self.present(alert, animated: true)
     }
 }
+
+
+
+
+
+

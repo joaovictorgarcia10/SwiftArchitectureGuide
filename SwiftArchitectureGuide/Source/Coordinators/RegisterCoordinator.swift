@@ -8,7 +8,7 @@
 import UIKit
 
 class RegisterCoordinator: Coordinator {
-   
+    
     var navigationController: UINavigationController
     
     required init(navigationController: UINavigationController) {
@@ -17,12 +17,16 @@ class RegisterCoordinator: Coordinator {
     
     func start() {
         let viewController = RegisterViewController()
-        
-        viewController.navigateToHome = {
-            let homeCoordinator = HomeCoordinator(navigationController: self.navigationController)
-            homeCoordinator.start()
-        }
-        
+        viewController.delegate = self
         self.navigationController.pushViewController(viewController, animated: true)
+    }
+    
+}
+
+// MARK: RegisterViewControllerDelegate
+extension RegisterCoordinator: RegisterViewControllerDelegate {
+    func navigateToHome() -> Void {
+        let homeCoordinator = HomeCoordinator(navigationController: self.navigationController)
+        homeCoordinator.start()
     }
 }

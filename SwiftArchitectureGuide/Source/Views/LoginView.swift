@@ -7,12 +7,14 @@
 
 import UIKit
 
-class LoginView: UIView {
-    
-    // MARK: Closures
-    var onTapLogin: ((_ email: String, _ password: String) -> Void)?
-    var onTapRegister: (() -> Void)?
+protocol LoginViewDelegate {
+    func onTapLogin(_ email: String, _ password: String) -> Void
+    func onTapRegister() -> Void
+}
 
+class LoginView: UIView {
+    var delegate: LoginViewDelegate?
+    
     // MARK: Initializers
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -80,7 +82,7 @@ class LoginView: UIView {
         button.backgroundColor = .systemBlue
         button.layer.cornerRadius = K.Spacings.sp2
         button.setTitle("Entrar", for: .normal)
-        button.addTarget(self, action: #selector(onTapLoginAction), for: .touchUpInside)
+        button.addTarget(self, action: #selector(onTapLogin), for: .touchUpInside)
         return button
     }()
     
@@ -92,22 +94,22 @@ class LoginView: UIView {
         button.backgroundColor = .systemBlue
         button.layer.cornerRadius = K.Spacings.sp2
         button.setTitle("Criar conta", for: .normal)
-        button.addTarget(self, action: #selector(onTapRegisterAction), for: .touchUpInside)
+        button.addTarget(self, action: #selector(onTapRegister), for: .touchUpInside)
         return button
     }()
     
     // MARK: Actions
     @objc
-    private func onTapLoginAction() {
+    private func onTapLogin() {
         if let email = emailTextField.text,
            let password = passwordTextField.text {
-            self.onTapLogin?(email, password)
+            delegate?.onTapLogin(email, password)
         }
     }
     
     @objc
-    private func onTapRegisterAction() {
-        self.onTapRegister?()
+    private func onTapRegister() {
+        delegate?.onTapRegister()
     }
 }
 

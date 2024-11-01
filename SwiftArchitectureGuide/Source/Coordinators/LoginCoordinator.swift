@@ -5,9 +5,7 @@
 //  Created by Joao Victor Garcia Leite Santana on 20/10/24.
 //
 
-import Foundation
 import UIKit
-
 
 class LoginCoordinator: Coordinator {
     
@@ -19,17 +17,20 @@ class LoginCoordinator: Coordinator {
     
     func start() { 
         let viewController = LoginViewController()
-                
-        viewController.navigateToRegister = {
-            let registerCoordinator = RegisterCoordinator(navigationController: self.navigationController)
-            registerCoordinator.start()
-        }
-        
-        viewController.navigateToHome = {
-            let homeCoordinator = HomeCoordinator(navigationController: self.navigationController)
-            homeCoordinator.start()
-        }
-        
+        viewController.delegate = self
         self.navigationController.pushViewController(viewController, animated: true)
+    }
+}
+
+// MARK: LoginViewControllerDelegate
+extension LoginCoordinator: LoginViewControllerDelegate {
+    func navigateToRegister() -> Void {
+        let registerCoordinator = RegisterCoordinator(navigationController: self.navigationController)
+        registerCoordinator.start()
+    }
+    
+    func navigateToHome() -> Void {
+        let homeCoordinator = HomeCoordinator(navigationController: self.navigationController)
+        homeCoordinator.start()
     }
 }

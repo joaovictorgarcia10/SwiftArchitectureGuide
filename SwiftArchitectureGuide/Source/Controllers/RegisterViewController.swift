@@ -7,15 +7,17 @@
 
 import UIKit
 
-class RegisterViewController: UIViewController {
-    // MARK: Closures
-    var navigateToHome: (() -> Void)?
+protocol RegisterViewControllerDelegate {
+    func navigateToHome() -> Void
+}
 
+class RegisterViewController: UIViewController {
+    var delegate: RegisterViewControllerDelegate?
+    
     // MARK: Properties
     lazy var registerView: RegisterView = {
         let view = RegisterView(frame: .zero)
-        view.onTapRegister = self.onTapRegister
-        view.showPasswordsNotMatchAlert = self.showAlert
+        view.delegate = self
         return view;
     }()
     
@@ -29,21 +31,30 @@ class RegisterViewController: UIViewController {
         super.viewDidLoad()
         self.title = "Register"
     }
-        
-    // MARK: Functions
-    private func onTapRegister(_ email: String, _ password: String) {
+}
+
+// MARK: RegisterViewDelegate
+extension RegisterViewController: RegisterViewDelegate {
+     func onTapRegister(_ email: String, _ password: String) {
         let userViewModel = UserViewModel()
         
         userViewModel.register(email, password) {[weak self] result in
             switch result {
             case .success(_):
-                self?.navigateToHome?()
+                self?.delegate?.navigateToHome()
             case .failure(let error):
                 self?.showAlert("Erro", error.localizedDescription)
             }
         }
     }
+    
+    func showPasswordsNotMatchAlert(_ title: String, _ message: String) {
+        self.showAlert(title, message)
+    }
+}
 
+// MARK: Functions
+extension RegisterViewController {
     private func showAlert(_ title: String, _ message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Ok", style: .default))
