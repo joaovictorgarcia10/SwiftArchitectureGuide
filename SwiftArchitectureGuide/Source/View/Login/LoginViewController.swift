@@ -15,7 +15,7 @@ protocol LoginViewControllerDelegate {
 class LoginViewController: UIViewController {
     var delegate: LoginViewControllerDelegate?
     
-    // MARK: Properties
+    // MARK: View
     lazy var loginView: LoginView = {
         let view = LoginView(frame: .zero)
         view.delegate = self
@@ -39,7 +39,7 @@ extension LoginViewController: LoginViewDelegate {
     func onTapLogin(_ email: String, _ password: String) {
         let userViewModel = UserViewModel()
         
-        userViewModel.login(email, password) {[weak self] result in
+        userViewModel.login(email, password) { [weak self] result in
             switch result {
             case .success(_):
                 self?.delegate?.navigateToHome()

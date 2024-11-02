@@ -204,32 +204,11 @@
 		7E11DC192C9A527F003EF82A /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				7E11DC182C9A5276003EF82A /* API */,
 				7ECE17C62CC530B5003F1993 /* Protocols */,
 				7ECE17B62CC52C26003F1993 /* Constants */,
 				7ECE17B32CC52A1F003F1993 /* Extensions */,
 			);
 			path = Shared;
-			sourceTree = "<group>";
-		};
-		7E3F7B242CCAC7930078C926 /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				7ECE17B82CC52C90003F1993 /* LoginViewController.swift */,
-				7ECE17BC2CC52D8E003F1993 /* RegisterViewController.swift */,
-				7ECE17C32CC52DF4003F1993 /* HomeViewController.swift */,
-			);
-			path = Controllers;
-			sourceTree = "<group>";
-		};
-		7E3F7B252CCAC7B70078C926 /* Coordinators */ = {
-			isa = PBXGroup;
-			children = (
-				7ECE17B12CC528C9003F1993 /* LoginCoordinator.swift */,
-				7ECE17BE2CC52DA3003F1993 /* RegisterCoordinator.swift */,
-				7ECE17C12CC52DEA003F1993 /* HomeCoordinator.swift */,
-			);
-			path = Coordinators;
 			sourceTree = "<group>";
 		};
 		7E3F7B262CCAC7CD0078C926 /* ViewModels */ = {
@@ -240,22 +219,51 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
-		7E3F7B272CCAC83C0078C926 /* Views */ = {
+		7E6720152CD6426100049DA3 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				7E6720162CD6426A00049DA3 /* Login */,
+				7E6720172CD6427200049DA3 /* Register */,
+				7E6720182CD6428200049DA3 /* Home */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		7E6720162CD6426A00049DA3 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				7ECE17B12CC528C9003F1993 /* LoginCoordinator.swift */,
+				7ECE17B82CC52C90003F1993 /* LoginViewController.swift */,
 				7ECE17C72CC6D42E003F1993 /* LoginView.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		7E6720172CD6427200049DA3 /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				7ECE17BE2CC52DA3003F1993 /* RegisterCoordinator.swift */,
+				7ECE17BC2CC52D8E003F1993 /* RegisterViewController.swift */,
 				7E3F7B282CCAC86E0078C926 /* RegisterView.swift */,
+			);
+			path = Register;
+			sourceTree = "<group>";
+		};
+		7E6720182CD6428200049DA3 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				7ECE17C12CC52DEA003F1993 /* HomeCoordinator.swift */,
+				7ECE17C32CC52DF4003F1993 /* HomeViewController.swift */,
 				7E3F7B2A2CCAC87B0078C926 /* HomeView.swift */,
 			);
-			path = Views;
+			path = Home;
 			sourceTree = "<group>";
 		};
 		7E8B258F2C9B53B000774573 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				7E3F7B252CCAC7B70078C926 /* Coordinators */,
-				7E3F7B242CCAC7930078C926 /* Controllers */,
-				7E3F7B272CCAC83C0078C926 /* Views */,
+				7E11DC182C9A5276003EF82A /* API */,
+				7E6720152CD6426100049DA3 /* View */,
 				7E3F7B262CCAC7CD0078C926 /* ViewModels */,
 				7E11DBE82C9A525D003EF82A /* AppDelegate.swift */,
 				7E11DBEA2C9A525D003EF82A /* SceneDelegate.swift */,
