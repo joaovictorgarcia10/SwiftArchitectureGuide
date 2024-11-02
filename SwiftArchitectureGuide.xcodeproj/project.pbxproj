@@ -166,7 +166,6 @@
 			isa = PBXGroup;
 			children = (
 				7E8B258F2C9B53B000774573 /* Source */,
-				7E11DC192C9A527F003EF82A /* Shared */,
 				7E11DBF62C9A525F003EF82A /* Info.plist */,
 				7EF5AEF32CB163590080775F /* GoogleService-Info.plist */,
 			);
@@ -208,6 +207,7 @@
 				7ECE17B62CC52C26003F1993 /* Constants */,
 				7ECE17B32CC52A1F003F1993 /* Extensions */,
 			);
+			name = Shared;
 			path = Shared;
 			sourceTree = "<group>";
 		};
@@ -262,6 +262,7 @@
 		7E8B258F2C9B53B000774573 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				7E11DC192C9A527F003EF82A /* Shared */,
 				7E11DC182C9A5276003EF82A /* API */,
 				7E6720152CD6426100049DA3 /* View */,
 				7E3F7B262CCAC7CD0078C926 /* ViewModels */,
