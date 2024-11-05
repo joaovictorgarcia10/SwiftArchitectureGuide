@@ -54,7 +54,7 @@ extension LoginViewController: LoginViewDelegate {
     }
 }
 
-// MARK: Functions
+// MARK: Alert Functions
 extension LoginViewController {
     private func showAlert(_ title: String, _ message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)

@@ -44,4 +44,15 @@ class UserViewModel {
             completion(.failure(error))
         }
     }
+    
+    
+    func logout(completion: @escaping(Result<Void, Error>) -> Void) {
+        let manager = UserManager(business: UserBusiness())
+        
+        manager.logout() {
+            completion(.success(()))
+        } errorHandler: { error in
+            completion(.failure(error))
+        }
+    }
 }

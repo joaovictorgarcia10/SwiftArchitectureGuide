@@ -21,6 +21,12 @@ protocol UserManagerProtocol {
         successHandler: @escaping(UserModel) -> Void,
         errorHandler: @escaping(Error) -> Void
     )
+    
+    
+    func logout (
+        successHandler: @escaping() -> Void,
+        errorHandler: @escaping(Error) -> Void
+    )
 }
 
 class UserManager: UserManagerProtocol {
@@ -58,6 +64,18 @@ class UserManager: UserManagerProtocol {
             switch result {
             case .success(let userModel):
                 successHandler(userModel)
+            case .failure(let error):
+                errorHandler(error)
+            }
+        }
+    }
+    
+    
+    func logout(successHandler: @escaping () -> Void, errorHandler: @escaping (any Error) -> Void) {
+        business.logout() { result in
+            switch result {
+            case .success():
+                successHandler()
             case .failure(let error):
                 errorHandler(error)
             }

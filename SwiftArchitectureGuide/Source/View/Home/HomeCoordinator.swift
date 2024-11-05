@@ -16,8 +16,16 @@ class HomeCoordinator: Coordinator {
     }
     
     func start() {
-        let viewController = HomeViewController()
+        let viewController = HomeTabBarController()
+        viewController.homeTabBarControllerDelegate = self
         viewController.modalPresentationStyle = .fullScreen
         self.navigationController.present(viewController, animated: true)
+    }
+}
+
+// MARK: HomeTabBarControllerDelegate
+extension HomeCoordinator: HomeTabBarControllerDelegate {
+    func navigateToLogin() -> Void {
+        self.navigationController.dismiss(animated: true)
     }
 }

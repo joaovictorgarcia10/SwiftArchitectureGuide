@@ -26,6 +26,7 @@ class RegisterCoordinator: Coordinator {
 // MARK: RegisterViewControllerDelegate
 extension RegisterCoordinator: RegisterViewControllerDelegate {
     func navigateToHome() -> Void {
+        navigationController.popToRootViewController(animated: false)
         let homeCoordinator = HomeCoordinator(navigationController: self.navigationController)
         homeCoordinator.start()
     }

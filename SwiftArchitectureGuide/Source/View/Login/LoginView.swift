@@ -90,7 +90,6 @@ class LoginView: UIView {
     private lazy var registerButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Criar conta", for: .normal)
         button.backgroundColor = .systemBlue
         button.layer.cornerRadius = K.Spacings.sp2
         button.setTitle("Criar conta", for: .normal)

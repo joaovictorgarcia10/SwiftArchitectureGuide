@@ -53,7 +53,7 @@ extension RegisterViewController: RegisterViewDelegate {
     }
 }
 
-// MARK: Functions
+// MARK: Alert Functions
 extension RegisterViewController {
     private func showAlert(_ title: String, _ message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
