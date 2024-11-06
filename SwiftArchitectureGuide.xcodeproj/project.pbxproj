@@ -39,8 +39,8 @@
 		7EF377F72CD67E350085D723 /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF377F62CD67E350085D723 /* FavoritesView.swift */; };
 		7EF377FA2CD7AAB10085D723 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF377F92CD7AAB10085D723 /* SettingsViewController.swift */; };
 		7EF377FC2CD7AAC80085D723 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF377FB2CD7AAC80085D723 /* SettingsView.swift */; };
-		7EF5AEF42CB1635A0080775F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7EF5AEF32CB163590080775F /* GoogleService-Info.plist */; };
 		8542471EEE8F01836A192C1A /* Pods_SwiftArchitectureGuide_SwiftArchitectureGuideUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDFCB2AEFA35C8469648DE40 /* Pods_SwiftArchitectureGuide_SwiftArchitectureGuideUITests.framework */; };
+		C39DAE142CDC38DE005C1D89 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C39DAE132CDC38DE005C1D89 /* GoogleService-Info.plist */; };
 		E37848CF3E359D6CE4EBD73B /* Pods_SwiftArchitectureGuideTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 777742590B46E581FAB03C3A /* Pods_SwiftArchitectureGuideTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -101,9 +101,9 @@
 		7EF377F62CD67E350085D723 /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
 		7EF377F92CD7AAB10085D723 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		7EF377FB2CD7AAC80085D723 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
-		7EF5AEF32CB163590080775F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		96268DB9CF77734BD8F707BD /* Pods-SwiftArchitectureGuideTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftArchitectureGuideTests.debug.xcconfig"; path = "Target Support Files/Pods-SwiftArchitectureGuideTests/Pods-SwiftArchitectureGuideTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9AC95BC155426D08135C9861 /* Pods-SwiftArchitectureGuide.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftArchitectureGuide.debug.xcconfig"; path = "Target Support Files/Pods-SwiftArchitectureGuide/Pods-SwiftArchitectureGuide.debug.xcconfig"; sourceTree = "<group>"; };
+		C39DAE132CDC38DE005C1D89 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D9185F2D5EE84CD6FF0A5DF7 /* Pods_SwiftArchitectureGuide.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftArchitectureGuide.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC33D0C777DEB3AF8D8ECB3F /* Pods-SwiftArchitectureGuide.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftArchitectureGuide.release.xcconfig"; path = "Target Support Files/Pods-SwiftArchitectureGuide/Pods-SwiftArchitectureGuide.release.xcconfig"; sourceTree = "<group>"; };
 		EDFCB2AEFA35C8469648DE40 /* Pods_SwiftArchitectureGuide_SwiftArchitectureGuideUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftArchitectureGuide_SwiftArchitectureGuideUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -177,7 +177,7 @@
 			children = (
 				7E8B258F2C9B53B000774573 /* Source */,
 				7E11DBF62C9A525F003EF82A /* Info.plist */,
-				7EF5AEF32CB163590080775F /* GoogleService-Info.plist */,
+				C39DAE132CDC38DE005C1D89 /* GoogleService-Info.plist */,
 			);
 			path = SwiftArchitectureGuide;
 			sourceTree = "<group>";
@@ -506,7 +506,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7E11DBF22C9A525F003EF82A /* Assets.xcassets in Resources */,
-				7EF5AEF42CB1635A0080775F /* GoogleService-Info.plist in Resources */,
+				C39DAE142CDC38DE005C1D89 /* GoogleService-Info.plist in Resources */,
 				7E11DBF52C9A525F003EF82A /* Base in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
