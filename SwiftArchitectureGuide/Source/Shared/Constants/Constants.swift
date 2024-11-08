@@ -36,5 +36,10 @@ struct K {
         static let sp18 = 72.0
         static let sp19 = 76.0
         static let sp20 = 80.0
+        static let sp21 = 84.0
+        static let sp22 = 88.0
+        static let sp23 = 92.0
+        static let sp24 = 96.0
+        static let sp25 = 96.0
     }
 }

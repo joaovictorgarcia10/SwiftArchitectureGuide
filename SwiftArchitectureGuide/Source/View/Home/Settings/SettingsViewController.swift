@@ -18,19 +18,19 @@ class SettingsViewController: UIViewController {
     }()
     
     // MARK: Overrides
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+    
     override func loadView() {
         super.loadView()
         self.view = settingsView
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
     }
 }
 
 // MARK: SettingsViewDelegate
 extension SettingsViewController: SettingsViewDelegate {
-    func onTapLogout() {
+    func onTapLogout() {        
         let userViewModel = UserViewModel()
         
         showLogoutAlert {
@@ -43,6 +43,14 @@ extension SettingsViewController: SettingsViewDelegate {
                 }
             }
         }
+    }
+    
+    func initUsername() -> String {
+        return "Username from view controller"
+    }
+    
+    func initEmail() -> String {
+        return "Email from view controller"
     }
 }
 

@@ -26,6 +26,21 @@ class RegisterView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: Actions
+    @objc
+    private func onTapRegister() {
+        if let email = emailTextField.text,
+           let password = passwordTextField.text,
+           let confirmPassword = confirmPasswordTextField.text {
+            
+            if password == confirmPassword {
+                delegate?.onTapRegister(email, password)
+            } else {
+                delegate?.showPasswordsNotMatchAlert("Erro", "As senhas não conferem")
+            }
+        }
+    }
+    
     // MARK: Properties
     private lazy var emailLabel: UILabel = {
         let label = UILabel()
@@ -108,22 +123,6 @@ class RegisterView: UIView {
         button.addTarget(self, action: #selector(onTapRegister), for: .touchUpInside)
         return button
     }()
-    
-    
-    // MARK: Actions
-    @objc
-    private func onTapRegister() {
-        if let email = emailTextField.text,
-           let password = passwordTextField.text,
-           let confirmPassword = confirmPasswordTextField.text {
-            
-            if password == confirmPassword {
-                delegate?.onTapRegister(email, password)
-            } else {
-                delegate?.showPasswordsNotMatchAlert("Erro", "As senhas não conferem")
-            }
-        }
-    }
 }
 
 // MARK: SetupView Protocol

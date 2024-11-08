@@ -10,19 +10,41 @@ import UIKit
 
 protocol SettingsViewDelegate {
     func onTapLogout()
+    func initUsername() -> String
+    func initEmail() -> String
 }
 
 class SettingsView: UIView {
     var delegate: SettingsViewDelegate?
-    
+        
     // MARK: Initializers
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupView()
+        self.initUsername()
+        self.initEmail()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: Actions
+    @objc
+    private func onTapLogout() {
+        self.delegate?.onTapLogout()
+    }
+    
+    @objc
+    private func initUsername() {
+        let username =  self.delegate?.initUsername()
+        self.nameLabel.text = username
+    }
+    
+    @objc
+    private func initEmail() {
+        let email =  self.delegate?.initEmail()
+        self.emailLabel.text = email
     }
     
     // MARK: Properties
@@ -67,7 +89,7 @@ class SettingsView: UIView {
         label.font = UIFont.systemFont(ofSize: K.Spacings.sp4, weight: .semibold)
         return label
     }()
-
+    
     private lazy var verticalStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -76,7 +98,6 @@ class SettingsView: UIView {
         stackView.distribution = .fill
         return stackView
     }()
-
     
     private lazy var horizontalStackView: UIStackView = {
         let stackView = UIStackView()
@@ -98,12 +119,6 @@ class SettingsView: UIView {
         button.addTarget(self, action: #selector(onTapLogout), for: .touchUpInside)
         return button
     }()
-    
-    // MARK: Actions
-    @objc
-    private func onTapLogout() {
-        delegate?.onTapLogout()
-    }
 }
 
 
@@ -111,8 +126,8 @@ class SettingsView: UIView {
 extension SettingsView: SetupView {
     func setupView() {
         self.backgroundColor = .viewBackgroundColor
-        setupHierarchy()
-        setupConstraints()
+        self.setupHierarchy()
+        self.setupConstraints()
     }
     
     func setupHierarchy() {
@@ -142,7 +157,7 @@ extension SettingsView: SetupView {
             circleAvatar.widthAnchor.constraint(equalToConstant: 100),
             circleAvatar.heightAnchor.constraint(equalTo: circleAvatar.widthAnchor)
         ])
-
+        
         NSLayoutConstraint.activate([
             logoutButton.topAnchor.constraint(equalTo: horizontalStackView.bottomAnchor, constant: K.Spacings.sp8),
             logoutButton.leadingAnchor.constraint(equalTo: settingsLabel.leadingAnchor),

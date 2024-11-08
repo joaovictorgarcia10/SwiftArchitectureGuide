@@ -25,6 +25,20 @@ class LoginView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: Actions
+    @objc
+    private func onTapLogin() {
+        if let email = emailTextField.text,
+           let password = passwordTextField.text {
+            delegate?.onTapLogin(email, password)
+        }
+    }
+    
+    @objc
+    private func onTapRegister() {
+        delegate?.onTapRegister()
+    }
+
     // MARK: Properties
     private lazy var emailLabel: UILabel = {
         let label = UILabel()
@@ -96,20 +110,6 @@ class LoginView: UIView {
         button.addTarget(self, action: #selector(onTapRegister), for: .touchUpInside)
         return button
     }()
-    
-    // MARK: Actions
-    @objc
-    private func onTapLogin() {
-        if let email = emailTextField.text,
-           let password = passwordTextField.text {
-            delegate?.onTapLogin(email, password)
-        }
-    }
-    
-    @objc
-    private func onTapRegister() {
-        delegate?.onTapRegister()
-    }
 }
 
 
