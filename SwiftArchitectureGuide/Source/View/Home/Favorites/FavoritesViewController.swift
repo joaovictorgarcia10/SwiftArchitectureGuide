@@ -16,13 +16,11 @@ class FavoritesViewController: UIViewController {
 
     
     // MARK: Overrides
-    override func loadView() {
-        super.loadView()
-        self.view = favoritesView
-        print("FavoritesView initialized")
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func loadView() {
+        self.view = favoritesView
     }
 }

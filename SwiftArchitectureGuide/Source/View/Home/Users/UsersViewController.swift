@@ -17,13 +17,11 @@ class UsersViewController: UIViewController {
 
     
     // MARK: Overrides
-    override func loadView() {
-        super.loadView()
-        self.view = usersView
-        print("UsersView initialized")
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func loadView() {
+        self.view = usersView
     }
 }

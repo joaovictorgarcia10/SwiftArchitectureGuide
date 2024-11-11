@@ -22,14 +22,13 @@ class RegisterViewController: UIViewController {
     }()
     
     // MARK: Overrides
-    override func loadView() {
-        super.loadView()
-        self.view = registerView
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Register"
+    }
+    
+    override func loadView() {
+        self.view = registerView
     }
 }
 
