@@ -13,7 +13,7 @@ protocol LoginViewControllerDelegate: AnyObject {
 }
 
 class LoginViewController: UIViewController {
-   weak var delegate: LoginViewControllerDelegate?
+    var delegate: LoginViewControllerDelegate?
     
     // MARK: View
     lazy var loginView: LoginView = {
@@ -22,6 +22,8 @@ class LoginViewController: UIViewController {
         return view;
     }()
     
+    private var alertController: UIAlertController?
+
     // MARK: Overrides
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,13 +39,18 @@ class LoginViewController: UIViewController {
 extension LoginViewController: LoginViewDelegate {
     func onTapLogin(_ email: String, _ password: String) {
         let userViewModel = UserViewModel()
+        self.showLoadingAlert()
         
         userViewModel.login(email, password) { [weak self] result in
             switch result {
             case .success(_):
-                self?.delegate?.navigateToHome()
+                self?.hideLoadingAlert() {
+                    self?.delegate?.navigateToHome()
+                }
             case .failure(let error):
-                self?.showAlert("Erro", error.localizedDescription)
+                self?.hideLoadingAlert() {
+                    self?.showErrorAlert("Something went wrong", error.localizedDescription)
+                }
             }
         }
     }
@@ -53,12 +60,28 @@ extension LoginViewController: LoginViewDelegate {
     }
 }
 
-// MARK: Alert Functions
+// MARK: UIAlertController
 extension LoginViewController {
-    private func showAlert(_ title: String, _ message: String) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Ok", style: .default))
-        self.present(alert, animated: true)
+    private func showLoadingAlert() {
+        self.alertController = UIAlertController(title: nil, message: "Please wait...", preferredStyle: .alert)
+        
+        let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50))
+        loadingIndicator.hidesWhenStopped = true
+        loadingIndicator.style = UIActivityIndicatorView.Style.large
+        loadingIndicator.startAnimating()
+        
+        self.alertController!.view.addSubview(loadingIndicator)
+        self.present(self.alertController!, animated: true)
+    }
+    
+    private func hideLoadingAlert(completion: @escaping(() -> Void)) {
+        self.alertController?.dismiss(animated: true, completion: {completion()})
+    }
+    
+    private func showErrorAlert(_ title: String, _ message: String) {
+        self.alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        self.alertController!.addAction(UIAlertAction(title: "Ok", style: .default))
+        self.present(self.alertController!, animated: true)
     }
 }
 

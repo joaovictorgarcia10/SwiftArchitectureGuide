@@ -15,7 +15,7 @@ protocol SettingsViewDelegate: AnyObject {
 }
 
 class SettingsView: UIView {
-    weak var delegate: SettingsViewDelegate?
+     var delegate: SettingsViewDelegate?
         
     // MARK: Initializers
     override init(frame: CGRect) {

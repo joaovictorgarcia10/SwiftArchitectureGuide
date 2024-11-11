@@ -14,7 +14,6 @@ class UsersViewController: UIViewController {
         return view;
         
     }()
-
     
     // MARK: Overrides
     override func viewDidLoad() {

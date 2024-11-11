@@ -12,7 +12,7 @@ protocol HomeTabBarControllerDelegate: AnyObject {
 }
 
 class HomeTabBarController: UITabBarController {
-    weak var homeTabBarControllerDelegate: HomeTabBarControllerDelegate?
+    var homeTabBarControllerDelegate: HomeTabBarControllerDelegate?
     
     // MARK: ViewControllers
     let usersViewController = UsersViewController()

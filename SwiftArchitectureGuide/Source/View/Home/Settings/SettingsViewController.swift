@@ -17,6 +17,8 @@ class SettingsViewController: UIViewController {
         return view
     }()
     
+    private var alertController: UIAlertController?
+
     // MARK: Overrides
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,18 +56,18 @@ extension SettingsViewController: SettingsViewDelegate {
     }
 }
 
-// MARK: Alert Functions
+// MARK: UIAlertController
 extension SettingsViewController {
     private func showLogoutAlert(confirmHandler: @escaping(() -> Void) ) {
-        let alert = UIAlertController(title: "Atenção", message: "Quer mesmo sair da sua conta?", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Sim", style: .default, handler: { _ in confirmHandler()}))
-        alert.addAction(UIAlertAction(title: "Não", style: .default))
-        self.present(alert, animated: true)
+        self.alertController = UIAlertController(title: "Atenção", message: "Quer mesmo sair da sua conta?", preferredStyle: .alert)
+        self.alertController!.addAction(UIAlertAction(title: "Sim", style: .default, handler: { _ in confirmHandler()}))
+        self.alertController!.addAction(UIAlertAction(title: "Não", style: .default))
+        self.present(self.alertController!, animated: true)
     }
     
     private func showTryAgainAlert(_ title: String, _ message: String) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Tentar novamente", style: .default))
-        self.present(alert, animated: true)
+        self.alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        self.alertController!.addAction(UIAlertAction(title: "Tentar novamente", style: .default))
+        self.present(self.alertController!, animated: true)
     }
 }
