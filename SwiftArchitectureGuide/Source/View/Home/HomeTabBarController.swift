@@ -7,12 +7,12 @@
 
 import UIKit
 
-protocol HomeTabBarControllerDelegate {
+protocol HomeTabBarControllerDelegate: AnyObject {
     func navigateToLogin() -> Void
 }
 
 class HomeTabBarController: UITabBarController {
-    var homeTabBarControllerDelegate: HomeTabBarControllerDelegate?
+    weak var homeTabBarControllerDelegate: HomeTabBarControllerDelegate?
     
     // MARK: ViewControllers
     let usersViewController = UsersViewController()

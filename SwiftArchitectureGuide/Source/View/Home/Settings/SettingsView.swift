@@ -8,21 +8,19 @@
 import UIKit
 
 
-protocol SettingsViewDelegate {
+protocol SettingsViewDelegate: AnyObject {
     func onTapLogout()
     func initUsername() -> String
     func initEmail() -> String
 }
 
 class SettingsView: UIView {
-    var delegate: SettingsViewDelegate?
+    weak var delegate: SettingsViewDelegate?
         
     // MARK: Initializers
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupView()
-        self.initUsername()
-        self.initEmail()
     }
     
     required init?(coder: NSCoder) {
@@ -36,17 +34,14 @@ class SettingsView: UIView {
     }
     
     @objc
-    private func initUsername() {
+    func initValues() {
         let username =  self.delegate?.initUsername()
-        self.nameLabel.text = username
-    }
-    
-    @objc
-    private func initEmail() {
         let email =  self.delegate?.initEmail()
+        self.nameLabel.text = username
         self.emailLabel.text = email
     }
     
+        
     // MARK: Properties
     private lazy var settingsLabel: UILabel = {
         let label = UILabel()

@@ -7,13 +7,13 @@
 
 import UIKit
 
-protocol LoginViewDelegate {
+protocol LoginViewDelegate: AnyObject {
     func onTapLogin(_ email: String, _ password: String) -> Void
     func onTapRegister() -> Void
 }
 
 class LoginView: UIView {
-    var delegate: LoginViewDelegate?
+    weak var delegate: LoginViewDelegate?
     
     // MARK: Initializers
     override init(frame: CGRect) {

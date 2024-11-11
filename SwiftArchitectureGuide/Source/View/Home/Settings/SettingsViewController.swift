@@ -20,10 +20,10 @@ class SettingsViewController: UIViewController {
     // MARK: Overrides
     override func viewDidLoad() {
         super.viewDidLoad()
+        settingsView.initValues()
     }
     
     override func loadView() {
-        super.loadView()
         self.view = settingsView
     }
 }
@@ -46,11 +46,11 @@ extension SettingsViewController: SettingsViewDelegate {
     }
     
     func initUsername() -> String {
-        return "Username from view controller"
+        return "Username"
     }
     
     func initEmail() -> String {
-        return "Email from view controller"
+        return "user@email.com"
     }
 }
 

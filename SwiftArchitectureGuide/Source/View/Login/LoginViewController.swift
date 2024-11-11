@@ -7,13 +7,13 @@
 
 import UIKit
 
-protocol LoginViewControllerDelegate {
+protocol LoginViewControllerDelegate: AnyObject {
     func navigateToHome() -> Void
     func navigateToRegister() -> Void
 }
 
 class LoginViewController: UIViewController {
-    var delegate: LoginViewControllerDelegate?
+   weak var delegate: LoginViewControllerDelegate?
     
     // MARK: View
     lazy var loginView: LoginView = {

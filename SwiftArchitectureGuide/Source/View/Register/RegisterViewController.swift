@@ -7,12 +7,12 @@
 
 import UIKit
 
-protocol RegisterViewControllerDelegate {
+protocol RegisterViewControllerDelegate: AnyObject {
     func navigateToHome() -> Void
 }
 
 class RegisterViewController: UIViewController {
-    var delegate: RegisterViewControllerDelegate?
+   weak var delegate: RegisterViewControllerDelegate?
     
     // MARK: View
     lazy var registerView: RegisterView = {

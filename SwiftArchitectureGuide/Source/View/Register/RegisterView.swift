@@ -7,14 +7,14 @@
 
 import UIKit
 
-protocol RegisterViewDelegate {
+protocol RegisterViewDelegate: AnyObject {
     func onTapRegister (_ email: String, _ password: String) -> Void
     func showPasswordsNotMatchAlert (_ title: String, _ message: String) -> Void
 }
 
 
 class RegisterView: UIView {
-    var delegate: RegisterViewDelegate?
+   weak var delegate: RegisterViewDelegate?
     
     // MARK: Initializers
     override init(frame: CGRect) {
