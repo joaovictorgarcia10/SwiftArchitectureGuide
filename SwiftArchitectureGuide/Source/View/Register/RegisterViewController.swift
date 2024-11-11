@@ -14,8 +14,8 @@ protocol RegisterViewControllerDelegate: AnyObject {
 class RegisterViewController: UIViewController {
     var delegate: RegisterViewControllerDelegate?
     
-    // MARK: View
-    lazy var registerView: RegisterView = {
+    // MARK: Properties
+    private lazy var registerView: RegisterView = {
         let view = RegisterView(frame: .zero)
         view.delegate = self
         return view;

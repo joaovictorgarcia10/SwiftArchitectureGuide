@@ -10,8 +10,8 @@ import UIKit
 class SettingsViewController: UIViewController {
     var navigateToLogin: (() -> Void)?
     
-    // MARK: View
-    lazy var settingsView: SettingsView = {
+    // MARK: Properties
+    private lazy var settingsView: SettingsView = {
         let view = SettingsView(frame: .zero)
         view.delegate = self
         return view

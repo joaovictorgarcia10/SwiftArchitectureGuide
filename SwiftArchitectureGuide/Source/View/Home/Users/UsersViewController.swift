@@ -8,8 +8,9 @@
 import UIKit
 
 class UsersViewController: UIViewController {
-    // MARK: View
-    lazy var usersView: UsersView = {
+    
+    // MARK: Properties
+    private lazy var usersView: UsersView = {
         let view = UsersView(frame: .zero)
         return view;
         

@@ -8,8 +8,9 @@
 import UIKit
 
 class FavoritesViewController: UIViewController {
-    // MARK: View
-    lazy var favoritesView: FavoritesView = {
+    
+    // MARK: Properties
+    private lazy var favoritesView: FavoritesView = {
         let view = FavoritesView(frame: .zero)
         return view;
     }()

@@ -15,8 +15,8 @@ protocol LoginViewControllerDelegate: AnyObject {
 class LoginViewController: UIViewController {
     var delegate: LoginViewControllerDelegate?
     
-    // MARK: View
-    lazy var loginView: LoginView = {
+    // MARK: Properties
+    private lazy var loginView: LoginView = {
         let view = LoginView(frame: .zero)
         view.delegate = self
         return view;
