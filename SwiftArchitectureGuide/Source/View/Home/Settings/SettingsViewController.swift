@@ -46,12 +46,10 @@ extension SettingsViewController: SettingsViewDelegate {
             }
         }
     }
-    
-    func initUsername() -> String {
-        return "Username"
-    }
-    
+
     func initEmail() -> String {
+        //let userViewModel = UserViewModel()
+        //return userViewModel.email
         return "user@email.com"
     }
 }
