@@ -15,14 +15,16 @@ class RegisterViewController: UIViewController {
     var delegate: RegisterViewControllerDelegate?
     
     // MARK: Properties
+    private let userViewModel = UserViewModel()
+    
+    private var alertController: UIAlertController?
+    
     private lazy var registerView: RegisterView = {
         let view = RegisterView(frame: .zero)
         view.delegate = self
         return view;
     }()
-    
-    private var alertController: UIAlertController?
-    
+        
     // MARK: Overrides
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,10 +39,9 @@ class RegisterViewController: UIViewController {
 // MARK: RegisterViewDelegate
 extension RegisterViewController: RegisterViewDelegate {
     func onTapRegister(_ email: String, _ password: String) {
-        let userViewModel = UserViewModel()
         showLoadingAlert()
         
-        userViewModel.register(email, password) {[weak self] result in
+        self.userViewModel.register(email, password) {[weak self] result in
             switch result {
             case .success(_):
                 self?.hideLoadingAlert() {
@@ -76,7 +77,7 @@ extension RegisterViewController {
     private func hideLoadingAlert(completion: @escaping(() -> Void)) {
         self.alertController?.dismiss(animated: true, completion: {completion()})
     }
-
+    
     private func showErrorAlert(_ title: String, _ message: String) {
         self.alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         self.alertController!.addAction(UIAlertAction(title: "Ok", style: .default))

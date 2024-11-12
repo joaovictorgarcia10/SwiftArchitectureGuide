@@ -10,7 +10,7 @@ import UIKit
 
 protocol SettingsViewDelegate: AnyObject {
     func onTapLogout()
-    func initEmail() -> String
+    func initEmail() -> String?
 }
 
 class SettingsView: UIView {

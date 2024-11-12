@@ -7,11 +7,11 @@
 
 import Foundation
 
-protocol UserBusinessProtocol {
+protocol UserBusinessProtocol: AnyObject {
     func register(email: String, password: String, completionHandler: @escaping(Result<UserModel, Error>) -> Void)
     func login(email: String, password: String, completionHandler: @escaping(Result<UserModel, Error>) -> Void)
     func logout(completionHandler: @escaping(Result<Void, Error>) -> Void)
-
+    func getUserData(completionHandler: @escaping(Result<UserModel, Error>) -> Void)
 }
 
 class UserBusiness: UserBusinessProtocol {
@@ -44,6 +44,17 @@ class UserBusiness: UserBusinessProtocol {
             switch result {
             case .success():
                 completionHandler(.success(()))
+            case .failure(let error):
+                completionHandler(.failure(error))
+            }
+        }
+    }
+    
+    func getUserData(completionHandler: @escaping (Result<UserModel, any Error>) -> Void) {
+        provider.getUserData() { result in
+            switch result {
+            case .success(let userModel):
+                completionHandler(.success(userModel))
             case .failure(let error):
                 completionHandler(.failure(error))
             }

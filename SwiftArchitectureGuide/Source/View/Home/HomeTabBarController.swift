@@ -15,9 +15,9 @@ class HomeTabBarController: UITabBarController {
     var homeTabBarControllerDelegate: HomeTabBarControllerDelegate?
     
     // MARK: ViewControllers
-    let usersViewController = UsersViewController()
-    let favoritesViewController = FavoritesViewController()
-    let settingsViewController = SettingsViewController()
+    private let usersViewController = UsersViewController()
+    private let favoritesViewController = FavoritesViewController()
+    private let settingsViewController = SettingsViewController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,15 +33,16 @@ class HomeTabBarController: UITabBarController {
         self.viewControllers = [usersViewController, favoritesViewController, settingsViewController]
     }
     
-    func setupUsersViewController() {
+    // MARK: Setup ViewControllers
+    private func setupUsersViewController() {
         self.usersViewController.tabBarItem = UITabBarItem(title: "Users", image: UIImage(systemName: "person.circle"), tag: 0)
     }
     
-    func setupFavoritesViewController() {
+    private func setupFavoritesViewController() {
         self.favoritesViewController.tabBarItem = UITabBarItem(title: "Favorites", image: UIImage(systemName: "heart"), tag: 1)
     }
     
-    func setupSettingsViewController() {
+    private func setupSettingsViewController() {
         self.settingsViewController.tabBarItem = UITabBarItem(title: "Settings", image: UIImage(systemName: "gear"), tag: 2)
         self.settingsViewController.navigateToLogin = {self.homeTabBarControllerDelegate?.navigateToLogin()}
     }

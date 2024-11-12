@@ -11,13 +11,16 @@ class SettingsViewController: UIViewController {
     var navigateToLogin: (() -> Void)?
     
     // MARK: Properties
+    private let userViewModel = UserViewModel()
+
+    private var alertController: UIAlertController?
+    
     private lazy var settingsView: SettingsView = {
         let view = SettingsView(frame: .zero)
         view.delegate = self
         return view
     }()
     
-    private var alertController: UIAlertController?
 
     // MARK: Overrides
     override func viewDidLoad() {
@@ -32,11 +35,9 @@ class SettingsViewController: UIViewController {
 
 // MARK: SettingsViewDelegate
 extension SettingsViewController: SettingsViewDelegate {
-    func onTapLogout() {        
-        let userViewModel = UserViewModel()
-        
+    func onTapLogout() {
         showLogoutAlert {
-            userViewModel.logout { result in
+            self.userViewModel.logout { result in
                 switch result {
                 case .success(_):
                     self.navigateToLogin?()
@@ -47,10 +48,19 @@ extension SettingsViewController: SettingsViewDelegate {
         }
     }
 
-    func initEmail() -> String {
-        //let userViewModel = UserViewModel()
-        //return userViewModel.email
-        return "user@email.com"
+    func initEmail() -> String? {
+        var email: String?
+        
+        self.userViewModel.getUserData { result in
+            switch result {
+            case .success(let userData):
+                email = userData.email
+            case .failure(_):
+                email = nil
+            }
+        }
+        
+        return email
     }
 }
 

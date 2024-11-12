@@ -55,4 +55,15 @@ class UserViewModel {
             completion(.failure(error))
         }
     }
+    
+    
+    func getUserData(completion: @escaping(Result<UserViewModel, Error>) -> Void) {
+        let manager = UserManager(business: UserBusiness())
+        
+        manager.getUserData() { userModel in
+            completion(.success(UserViewModel(model: userModel)))
+        } errorHandler: { error in
+            completion(.failure(error))
+        }
+    }
 }

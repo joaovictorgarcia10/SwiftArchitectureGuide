@@ -16,13 +16,16 @@ class LoginViewController: UIViewController {
     var delegate: LoginViewControllerDelegate?
     
     // MARK: Properties
+    private let userViewModel = UserViewModel()
+    
+    private var alertController: UIAlertController?
+
     private lazy var loginView: LoginView = {
         let view = LoginView(frame: .zero)
         view.delegate = self
         return view;
     }()
     
-    private var alertController: UIAlertController?
 
     // MARK: Overrides
     override func viewDidLoad() {
@@ -38,10 +41,9 @@ class LoginViewController: UIViewController {
 // MARK: LoginViewDelegate
 extension LoginViewController: LoginViewDelegate {
     func onTapLogin(_ email: String, _ password: String) {
-        let userViewModel = UserViewModel()
         self.showLoadingAlert()
         
-        userViewModel.login(email, password) { [weak self] result in
+        self.userViewModel.login(email, password) { [weak self] result in
             switch result {
             case .success(_):
                 self?.hideLoadingAlert() {

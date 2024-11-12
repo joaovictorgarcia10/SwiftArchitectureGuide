@@ -7,15 +7,15 @@
 
 import Foundation
 
-protocol UserManagerProtocol {
-    func register (
+protocol UserManagerProtocol: AnyObject {
+    func register(
         email: String,
         password: String,
         successHandler: @escaping(UserModel) -> Void,
         errorHandler: @escaping(Error) -> Void
     )
     
-    func login (
+    func login(
         email: String,
         password: String,
         successHandler: @escaping(UserModel) -> Void,
@@ -23,8 +23,13 @@ protocol UserManagerProtocol {
     )
     
     
-    func logout (
+    func logout(
         successHandler: @escaping() -> Void,
+        errorHandler: @escaping(Error) -> Void
+    )
+    
+    func getUserData(
+        successHandler: @escaping(UserModel) -> Void,
         errorHandler: @escaping(Error) -> Void
     )
 }
@@ -36,22 +41,21 @@ class UserManager: UserManagerProtocol {
         self.business = business
     }
     
-    
     func register (
         email: String,
         password: String,
         successHandler: @escaping (UserModel) -> Void,
         errorHandler: @escaping (Error) -> Void
     ) {
-            business.register(email: email, password: password) { result in
-                switch result {
-                case .success(let userModel):
-                    successHandler(userModel)
-                case .failure(let error):
-                    errorHandler(error)
-                }
+        business.register(email: email, password: password) { result in
+            switch result {
+            case .success(let userModel):
+                successHandler(userModel)
+            case .failure(let error):
+                errorHandler(error)
             }
         }
+    }
     
     
     func login(
@@ -76,6 +80,18 @@ class UserManager: UserManagerProtocol {
             switch result {
             case .success():
                 successHandler()
+            case .failure(let error):
+                errorHandler(error)
+            }
+        }
+    }
+    
+    
+    func getUserData(successHandler: @escaping (UserModel) -> Void, errorHandler: @escaping (any Error) -> Void) {
+        business.getUserData() { result in
+            switch result {
+            case .success(let userModel):
+                successHandler(userModel)
             case .failure(let error):
                 errorHandler(error)
             }

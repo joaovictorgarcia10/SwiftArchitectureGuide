@@ -8,7 +8,7 @@
 import UIKit
 
 extension UIColor {
-    
+
     static var viewBackgroundColor: UIColor {
         UIColor(named: "viewBackgroundColor")!
     }

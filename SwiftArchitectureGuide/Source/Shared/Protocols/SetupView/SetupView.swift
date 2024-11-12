@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol SetupView {
+protocol SetupView: AnyObject {
     func setupView()
     func setupHierarchy()
     func setupConstraints()
